@@ -232,7 +232,8 @@ fi
 if [ $BUILD_PYTHON_DEMOS == 1 ]; then
   WHITE_TEXT
   printf "# python demos .................................................... "
-  if [ -f ../build/python_demos/_pixy.so ]; then
+  lines=$(find ../build/python_demos -name '_pixy*so' | wc -l)
+  if [ $lines -ne 0 ]; then
     GREEN_TEXT
     printf "SUCCESS "
   else
